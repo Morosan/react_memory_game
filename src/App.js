@@ -1,29 +1,71 @@
 import { useEffect, useState } from 'react';
 import './App.css'
-import SingleCard from './components/SingleCard';
+import SingleCard from './components/SingleCard/SingleCard';
+import SelectControl from './components/SelectControl/SelectControl';
 
-const defaultCardImages = [
-  {"src": "/img/helmet-1.png"},
-  {"src": "/img/potion-1.png"},
-  {"src": "/img/ring-1.png"},
-  {"src": "/img/scroll-1.png"},
-  {"src": "/img/shield-1.png"},
-  {"src": "/img/sword-1.png"},
+const cardImages = [
+  {
+    "src": "/img/helmet-1.png",
+    "tag": "default"
+  },
+  {
+    "src": "/img/potion-1.png",
+    "tag": "default"
+  },
+  {
+    "src": "/img/ring-1.png",
+    "tag": "default"
+  },
+  {
+    "src": "/img/scroll-1.png",
+    "tag": "default"
+  },
+  {
+    "src": "/img/shield-1.png",
+    "tag": "default"
+  },
+  {
+    "src": "/img/sword-1.png",
+    "tag": "default"
+  },
+  {
+    "src": "/img/frozen-snowflake.png",
+    "tag": "frozen"
+  },
+  {
+    "src": "/img/frozen-snowflake.png",
+    "tag": "frozen"
+  },
+  {
+    "src": "/img/frozen-snowflake.png",
+    "tag": "frozen"
+  },
+  {
+    "src": "/img/frozen-snowflake.png",
+    "tag": "frozen"
+  },
+  {
+    "src": "/img/frozen-snowflake.png",
+    "tag": "frozen"
+  },
+  {
+    "src": "/img/frozen-snowflake.png",
+    "tag": "frozen"
+  },
 ]
-const frozenCardImages = [
-{"src": "/img/frozen-snowflake.png"},
-]
+
 function App() {
   const [cards, setCards] = useState([]);
   const [turns, setTurns] = useState(0);
   const [choiceOne, setChoiceOne] = useState(null);
   const [choiceTwo, setChoiceTwo] = useState(null);
   const [dissabled, setDissabled] = useState(false);
-  const [cardsTheme, setCardsTheme] = useState([]);
+  const [selectedTheme, setSelectedTheme] = useState('defaultTheme'); 
+  const [selectedTag, setSelectedTag] = useState('');
 
   //shuffle cards 
   const shuffleCards = () => {
-    const shuffleCards = [...defaultCardImages, ...defaultCardImages]
+    const shuffleCards = [...cardImages, ...cardImages]
       .sort(() => Math.random() - 0.5)
       .map((card) => ({ ...card, id: Math.random() }));
 
@@ -60,7 +102,7 @@ function App() {
     }
   }, [choiceOne, choiceTwo])
 
-  console.log(cards)
+  console.log("cards", cards)
 
   //reset choices & increse turn
   const resetTurn = () => {
@@ -75,18 +117,30 @@ function App() {
     shuffleCards()
   }, [])
 
+  const filteredCards = cardImages.filter((card) => card.tag === selectedTag);
+  const cardList = filteredCards.slice(0, 6).map((card, index) => (
+    <SingleCard
+      key={card.id}
+      card={card}
+      handleChoice={handleChoice}
+      flipped={card === choiceOne || card === choiceTwo || card.matched}
+      dissabled={dissabled}
+    />
+  ));
+
+  console.log("filteredCards", filteredCards)
+  console.log("cardList", cardList)
+
   return (
     <div className="App">
       <h1>Memory Game</h1>
-      <select>
-        <option>Default Theme</option>
-        <option>Frozen Theme</option>
-      </select>
+      
+      <SelectControl selectedTheme={selectedTheme} onChange={setSelectedTheme}/>
 
       <button onClick={shuffleCards}>New Game</button>
 
       <div className="card-grid">
-        {cards.map(card => (
+        {cards.slice(0, 12).map(card => (
           <SingleCard 
             key={card.id}
             card={card}
@@ -96,6 +150,7 @@ function App() {
           />
         ))}
       </div>
+
       <p>Turns: {turns}</p>
     </div>
   );
