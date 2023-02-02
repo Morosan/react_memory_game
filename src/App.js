@@ -59,9 +59,17 @@ function App() {
   const [turns, setTurns] = useState(0);
   const [choiceOne, setChoiceOne] = useState(null);
   const [choiceTwo, setChoiceTwo] = useState(null);
-  const [dissabled, setDissabled] = useState(false);
+  const [disabled, setdisabled] = useState(false);
   const [selectedTheme, setSelectedTheme] = useState('defaultTheme'); 
   const [selectedTag, setSelectedTag] = useState('');
+
+  //filter cards
+  // const filterCards = () => {
+  //   setCards(prevCards => {
+  //     return prevCards.filter(card => card.tag === selectedTag);
+  //   });
+  // };
+  
 
   //shuffle cards 
   const shuffleCards = () => {
@@ -73,6 +81,7 @@ function App() {
       setChoiceTwo(null);
       setCards(shuffleCards);
       setTurns(0);
+      // filterCards();
   }
 
   //handle a choice
@@ -83,7 +92,7 @@ function App() {
   //compare 2 selected cards
   useEffect(() => {
     if (choiceOne && choiceTwo) {
-      setDissabled(true);
+      setdisabled(true);
       
       if (choiceOne.src === choiceTwo.src) {
         setCards(prevCards => {
@@ -109,27 +118,17 @@ function App() {
     setChoiceOne(null)
     setChoiceTwo(null)
     setTurns(prevTurns => prevTurns + 1)
-    setDissabled(false);
+    setdisabled(false);
   }
+
+  // useEffect(() => {
+  //   filterCards();
+  // }, [selectedTag]);
 
   //start a new game automatically
   useEffect(() => {
     shuffleCards()
   }, [])
-
-  const filteredCards = cardImages.filter((card) => card.tag === selectedTag);
-  const cardList = filteredCards.slice(0, 6).map((card, index) => (
-    <SingleCard
-      key={card.id}
-      card={card}
-      handleChoice={handleChoice}
-      flipped={card === choiceOne || card === choiceTwo || card.matched}
-      dissabled={dissabled}
-    />
-  ));
-
-  console.log("filteredCards", filteredCards)
-  console.log("cardList", cardList)
 
   return (
     <div className="App">
@@ -140,15 +139,18 @@ function App() {
       <button onClick={shuffleCards}>New Game</button>
 
       <div className="card-grid">
-        {cards.slice(0, 12).map(card => (
-          <SingleCard 
-            key={card.id}
-            card={card}
-            handleChoice={handleChoice}
-            flipped={card === choiceOne || card === choiceTwo || card.matched}
-            dissabled={dissabled}
-          />
-        ))}
+        {cards
+          .map(card => (
+            <SingleCard 
+              key={card.id}
+              card={card}
+              handleChoice={handleChoice}
+              flipped={card === choiceOne || card === choiceTwo || card.matched}
+              disabled={disabled}
+            />
+          ))
+          .slice(0, 12)
+      }
       </div>
 
       <p>Turns: {turns}</p>

@@ -1,6 +1,7 @@
 .App {
   max-width: 53.75rem;
   margin: 2.5rem auto;
+  padding: 2rem;
 }
 
 button {
