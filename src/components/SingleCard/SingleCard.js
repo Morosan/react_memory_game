@@ -10,11 +10,10 @@ export default function SingleCard({ card, handleChoice, flipped, disabled }) {
   
     return (
     <div className="card">
-        {/* <div className={flipped ? "flipped" : ""}> */}
-        <div className="flipped">
+        <div className={flipped ? "flipped" : ""}>
             <img src={card.src} alt={card.src} className="front" />
             <img 
-                src="/img/cover.png" 
+                src="/img/snowflake.jpg" 
                 alt="card back" 
                 className="back" 
                 onClick={handleClick}

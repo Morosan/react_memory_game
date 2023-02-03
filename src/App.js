@@ -1,56 +1,32 @@
 import { useEffect, useState } from 'react';
 import './App.css'
 import SingleCard from './components/SingleCard/SingleCard';
-import SelectControl from './components/SelectControl/SelectControl';
+// import SelectControl from './components/SelectControl/SelectControl';
 
 const cardImages = [
   {
-    "src": "/img/helmet-1.png",
+    "src": "/img/anna.jpg",
     "tag": "default"
   },
   {
-    "src": "/img/potion-1.png",
+    "src": "/img/bruni.jpg",
     "tag": "default"
   },
   {
-    "src": "/img/ring-1.png",
+    "src": "/img/elsa.jpg",
     "tag": "default"
   },
   {
-    "src": "/img/scroll-1.png",
+    "src": "/img/kristoff.jpg",
     "tag": "default"
   },
   {
-    "src": "/img/shield-1.png",
+    "src": "/img/olaf.jpg",
     "tag": "default"
   },
   {
-    "src": "/img/sword-1.png",
+    "src": "/img/sven.jpg",
     "tag": "default"
-  },
-  {
-    "src": "/img/frozen-snowflake.png",
-    "tag": "frozen"
-  },
-  {
-    "src": "/img/frozen-snowflake.png",
-    "tag": "frozen"
-  },
-  {
-    "src": "/img/frozen-snowflake.png",
-    "tag": "frozen"
-  },
-  {
-    "src": "/img/frozen-snowflake.png",
-    "tag": "frozen"
-  },
-  {
-    "src": "/img/frozen-snowflake.png",
-    "tag": "frozen"
-  },
-  {
-    "src": "/img/frozen-snowflake.png",
-    "tag": "frozen"
   },
 ]
 
@@ -61,7 +37,7 @@ function App() {
   const [choiceTwo, setChoiceTwo] = useState(null);
   const [disabled, setdisabled] = useState(false);
   const [selectedTheme, setSelectedTheme] = useState('defaultTheme'); 
-  const [selectedTag, setSelectedTag] = useState('');
+  // const [selectedTag, setSelectedTag] = useState('');
 
   //filter cards
   // const filterCards = () => {
@@ -111,8 +87,6 @@ function App() {
     }
   }, [choiceOne, choiceTwo])
 
-  console.log("cards", cards)
-
   //reset choices & increse turn
   const resetTurn = () => {
     setChoiceOne(null)
@@ -134,7 +108,7 @@ function App() {
     <div className="App">
       <h1>Memory Game</h1>
       
-      <SelectControl selectedTheme={selectedTheme} onChange={setSelectedTheme}/>
+      {/* <SelectControl selectedTheme={selectedTheme} onChange={setSelectedTheme}/> */}
 
       <button onClick={shuffleCards}>New Game</button>
 
