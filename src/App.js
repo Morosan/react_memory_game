@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import './App.css'
+import clapping from '../public/sounds/clapping'
 import SingleCard from './components/SingleCard/SingleCard';
 // import SelectControl from './components/SelectControl/SelectControl';
 
@@ -93,6 +94,16 @@ function App() {
     setChoiceTwo(null)
     setTurns(prevTurns => prevTurns + 1)
     setdisabled(false);
+  }
+
+  // start clapping function
+  const startClapping = () => {
+    new Audio(clapping).play()
+  }
+
+  // check if all cards are flipped
+  const checkFlipped = () => {
+    
   }
 
   // useEffect(() => {
