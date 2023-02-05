@@ -23,7 +23,7 @@ button:hover {
 .card-grid {
   margin-top: 2.5rem;
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
   grid-gap: 1.25rem;
 }
 .card .front,
