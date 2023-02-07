@@ -1,9 +1,3 @@
-.App {
-  max-width: 53.75rem;
-  margin: 2.5rem auto;
-  padding: 2rem;
-}
-
 button {
   background: none;
   border: 2px solid #fff;
@@ -20,12 +14,30 @@ button:hover {
   color: #fff;
 }
 
-.card-grid {
-  margin-top: 2.5rem;
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
-  grid-gap: 1.25rem;
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 100rem;
+  width: 100%;
+  margin: 0 auto;
+  padding: 1.25rem;
 }
+
+.card-grid {
+  padding: 1.25rem;
+  max-width: 70rem;
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+}
+
+.card {
+  margin: 1rem;
+}
+
 .card .front,
 .card .back {
   cursor: pointer;
@@ -50,4 +62,16 @@ button:hover {
 .flipped .back {
   transform: rotateY(90deg);
   transition-delay: 0s;
+}
+
+.difficulty-list {
+  list-style-type: none;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  margin: 4rem 0;
+}
+
+.difficulty-item {
+  margin: 0 .625rem;
 }

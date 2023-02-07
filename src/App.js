@@ -9,10 +9,6 @@ const cardImages = [
     "tag": "default"
   },
   {
-    "src": "/img/bruni.jpg",
-    "tag": "default"
-  },
-  {
     "src": "/img/elsa.jpg",
     "tag": "default"
   },
@@ -41,6 +37,10 @@ const cardImages = [
     "tag": "default"
   },
   {
+    "src": "/img/bruni.jpg",
+    "tag": "default"
+  },
+  {
     "src": "/img/marshmallow.jpg",
     "tag": "default"
   },
@@ -53,6 +53,7 @@ function App() {
   const [choiceTwo, setChoiceTwo] = useState(null);
   const [disabled, setdisabled] = useState(false);
   const [flipped, setFlipped] = useState(false);
+  const [difficulty, setDifficulty] = useState(5);
 
   //render cards
   const renderCards = (cards) => {
@@ -66,9 +67,12 @@ function App() {
 
   //shuffle cards 
   const shuffleCards = () => {
-    const shuffleCards = [...cardImages, ...cardImages]
-      .sort(() => Math.random() - 0.5)
-      .map((card) => ({ ...card, id: Math.random() }));
+    const slicedImagesByDifficulty = [...cardImages,]
+    .slice(0, difficulty)
+    
+    const shuffleCards = [...slicedImagesByDifficulty, ...slicedImagesByDifficulty]
+    .sort(() => Math.random() - 0.5)
+    .map((card) => ({ ...card, id: Math.random()}));
 
       setChoiceOne(null);
       setChoiceTwo(null);
@@ -126,6 +130,14 @@ function App() {
     }
   }
 
+  const changeDifficulty = (difficulty) => {
+    setDifficulty(difficulty);
+  };
+
+  useEffect(() => {
+    resetGame()
+  }, [difficulty])
+
   // call the checkFlipped
   useEffect(() => {
     checkFlipped()
@@ -145,9 +157,25 @@ function App() {
 
   return (
     <div className="App">
-      <h1>Memory Game</h1>
+      <header className="header">
+        <h1>Logo</h1>
+
+        <ul className="difficulty-list">
+          <li className="difficulty-item">
+            <button onClick={() => changeDifficulty(5)}>Easy</button>
+          </li>
+          <li className="difficulty-item">
+            <button onClick={() => changeDifficulty(7)}>Medium</button>
+          </li>
+          <li className="difficulty-item">
+            <button onClick={() => changeDifficulty(10)}>Hard</button>
+          </li>
+        </ul>
+
+        <button onClick={resetGame}>New Game</button>
+      </header>
       
-      <button onClick={resetGame}>New Game</button>
+
 
       <div className="card-grid">
         {cards
@@ -160,7 +188,7 @@ function App() {
               disabled={disabled}
             />
           ))
-          .slice(0, 20)
+          // .slice(0, difficulty)
       }
       </div>
 
