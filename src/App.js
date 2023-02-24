@@ -1,50 +1,9 @@
 import { useEffect, useState } from 'react';
 import './App.css'
+import Header from './components/basic/Header/Header'
 import clapping from './sounds/clapping.wav'
 import SingleCard from './components/SingleCard/SingleCard';
-
-const cardImages = [
-  {
-    "src": "/img/anna.jpg",
-    "tag": "default"
-  },
-  {
-    "src": "/img/elsa.jpg",
-    "tag": "default"
-  },
-  {
-    "src": "/img/kristoff.jpg",
-    "tag": "default"
-  },
-  {
-    "src": "/img/olaf.jpg",
-    "tag": "default"
-  },
-  {
-    "src": "/img/sven.jpg",
-    "tag": "default"
-  },
-  {
-    "src": "/img/hans.jpg",
-    "tag": "default"
-  },
-  {
-    "src": "/img/oaken.jpg",
-    "tag": "default"
-  },
-  {
-    "src": "/img/snowgies.jpg",
-    "tag": "default"
-  },
-  {
-    "src": "/img/bruni.jpg",
-    "tag": "default"
-  },
-  {
-    "src": "/img/marshmallow.jpg",
-    "tag": "default"
-  },
-]
+import { cardImages } from './data/cardImages';
 
 function App() {
   const [cards, setCards] = useState([]);
@@ -157,25 +116,11 @@ function App() {
 
   return (
     <div className="App">
-      <header className="header">
-        <h1>Logo</h1>
-
-        <ul className="difficulty-list">
-          <li className="difficulty-item">
-            <button onClick={() => changeDifficulty(5)}>Easy</button>
-          </li>
-          <li className="difficulty-item">
-            <button onClick={() => changeDifficulty(7)}>Medium</button>
-          </li>
-          <li className="difficulty-item">
-            <button onClick={() => changeDifficulty(10)}>Hard</button>
-          </li>
-        </ul>
-
-        <button onClick={resetGame}>New Game</button>
-      </header>
-      
-
+      <Header
+        changeDifficulty={changeDifficulty}
+        resetGame={resetGame}
+      >
+      </Header>
 
       <div className="card-grid">
         {cards

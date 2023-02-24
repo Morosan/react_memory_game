@@ -14,16 +14,6 @@ button:hover {
   color: #fff;
 }
 
-.header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  max-width: 100rem;
-  width: 100%;
-  margin: 0 auto;
-  padding: 1.25rem;
-}
-
 .card-grid {
   padding: 1.25rem;
   max-width: 70rem;
@@ -34,42 +24,12 @@ button:hover {
   align-items: center;
 }
 
-.card {
-  margin: 1rem;
-}
-
-.card .front,
-.card .back {
-  cursor: pointer;
-}
-
-.card .front {
-  transform: rotateY(90deg);
-  transition: all ease-in 0.2s;
-  position: absolute;
-}
-
-.flipped .front {
-  transform: rotateY(0deg);
-  transition-delay: 0.2s;
-}
-
-.card .back {
-  transition: all ease-in 0.2s;
-  transition-delay: 0.2s;
-}
-
-.flipped .back {
-  transform: rotateY(90deg);
-  transition-delay: 0s;
-}
-
 .difficulty-list {
   list-style-type: none;
   padding: 0;
   display: flex;
   justify-content: center;
-  margin: 4rem 0;
+  margin: 0;
 }
 
 .difficulty-item {
