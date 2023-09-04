@@ -1,6 +1,6 @@
 import React from 'react';
 
-export default function SingleCard({ card, handleChoice, flipped, disabled }) {
+export default function SingleCard({ card, handleChoice, flipped, disabled, border }) {
     const handleClick = () => {
         if (!disabled) {
             handleChoice(card);
@@ -8,7 +8,7 @@ export default function SingleCard({ card, handleChoice, flipped, disabled }) {
     }
 
     return (
-    <div className={flipped ? "card flipped" : "card"}>
+    <div className={`card ${flipped ? "flipped" : ""} ${card.matched ? "border" : ""}`}>
         <img src={card.src} alt={card.src} className="front" />
         <img 
             src="/img/snowflake.jpg" 

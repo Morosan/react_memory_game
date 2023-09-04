@@ -18,10 +18,9 @@
 
   img {
     width: 100%;
-    // max-width: 10rem;
     height: 100%;
     display: block;
-    border: 2px solid #fff;
+    border: 3px solid $white;
     border-radius: 6px;
   }
   
@@ -34,6 +33,12 @@
   .back {
     transition: all ease-in 0.2s;
     transition-delay: 0.2s;
+  }
+
+  &.border {
+    img {
+      border-color: $tertiary;
+    }
   }
 }
 
