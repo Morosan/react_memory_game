@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import './App.css'
+import './App.scss'
 import Header from './components/basic/Header/Header'
 import clapping from './sounds/clapping.wav'
 import SingleCard from './components/SingleCard/SingleCard';
@@ -122,7 +122,7 @@ function App() {
       >
       </Header>
 
-      <div className="card-grid">
+      <main className="card-grid">
         {cards
           .map(card => (
             <SingleCard 
@@ -135,7 +135,7 @@ function App() {
           ))
           // .slice(0, difficulty)
       }
-      </div>
+      </main>
 
       <p>Turns: {turns}</p>
     </div>

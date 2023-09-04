@@ -1,0 +1,73 @@
+html {
+  font-size: 62.5%;
+}
+
+.card-grid {
+  padding: 1.25rem;
+  max-width: 140rem;
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+
+  &.easy {
+    max-width: 100rem;
+
+    @media screen and (max-width: $lg) {
+      max-width: 100%;
+    }
+
+    @media screen and (max-width: $md) {
+      .card {
+        max-width: 14rem;
+      }
+    }
+
+    @media screen and (max-width: $sm) {
+      .card {
+        max-width: 10rem;
+      }
+    }
+  }
+  
+  &.medium {
+    max-width: 100rem;
+
+    @media screen and (max-width: $lg) {
+      max-width: 100%;
+    }
+
+    @media screen and (max-width: $md) {
+      .card {
+        max-width: 12rem;
+      }
+    }
+
+    @media screen and (max-width: $sm) {
+      .card {
+        max-width: 10rem;
+      }
+    }
+  }
+  
+  &.hard {
+    max-width: 100rem;
+
+    @media screen and (max-width: $lg) {
+      max-width: 100%;
+    }
+
+    @media screen and (max-width: $md) {
+      .card {
+        max-width: 12rem;
+      }
+    }
+
+    @media screen and (max-width: $sm) {
+      .card {
+        max-width: 8rem;
+      }
+    }
+  }
+}

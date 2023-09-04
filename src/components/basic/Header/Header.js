@@ -1,7 +1,37 @@
-import React from 'react';
-import './Header.scss';
+import React, { useEffect, useState } from 'react';
 
 const Header = ({ changeDifficulty, resetGame }) => {
+  const [currentDifficulty, setCurrentDifficulty] = useState(5);
+
+  useEffect(() => {
+    // Retrieve the difficulty from local storage when the component mounts
+    const storedDifficulty = localStorage.getItem('currentDifficulty');
+    if (storedDifficulty) {
+      setCurrentDifficulty(parseInt(storedDifficulty, 10));
+    }
+  }, []);
+
+  useEffect(() => {
+    // Update the class of the main element based on the current difficulty
+    const mainElement = document.querySelector('main');
+    mainElement.classList.remove('easy', 'medium', 'hard');
+    if (currentDifficulty === 5) {
+      mainElement.classList.add('easy');
+    } else if (currentDifficulty === 7) {
+      mainElement.classList.add('medium');
+    } else if (currentDifficulty === 10) {
+      mainElement.classList.add('hard');
+    }
+    
+    // Store the current difficulty in local storage
+    localStorage.setItem('currentDifficulty', currentDifficulty.toString());
+  }, [currentDifficulty]);
+
+  const handleDifficultyChange = (newDifficulty) => {
+    changeDifficulty(newDifficulty);
+    setCurrentDifficulty(newDifficulty);
+  };
+
   return (
       <header className="header">
         <div className="logo-wrapper">
@@ -13,13 +43,13 @@ const Header = ({ changeDifficulty, resetGame }) => {
 
       <ul className="difficulty-list">
         <li className="difficulty-item">
-          <button onClick={() => changeDifficulty(5)}>Easy</button>
+          <button onClick={() => handleDifficultyChange(5)}>Easy</button>
         </li>
         <li className="difficulty-item">
-          <button onClick={() => changeDifficulty(7)}>Medium</button>
+          <button onClick={() => handleDifficultyChange(7)}>Medium</button>
         </li>
         <li className="difficulty-item">
-          <button onClick={() => changeDifficulty(10)}>Hard</button>
+          <button onClick={() => handleDifficultyChange(10)}>Hard</button>
         </li>
       </ul>
 

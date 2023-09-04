@@ -16,6 +16,10 @@
 
   .logo {
     margin: 0;
+
+    @media screen and (max-width: $md) {
+      
+    }
   }
 
   .reset-game {
@@ -23,5 +27,16 @@
     width: 60px;
     border: 0;
   }
+  
+  .difficulty-list {
+    list-style-type: none;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    margin: 0;
+  }
 
+  .difficulty-item {
+    margin: 0 .625rem;
+  }
 }

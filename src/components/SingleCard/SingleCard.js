@@ -1,5 +1,4 @@
 import React from 'react';
-import './SingleCard.scss';
 
 export default function SingleCard({ card, handleChoice, flipped, disabled }) {
     const handleClick = () => {
