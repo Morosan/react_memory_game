@@ -1,12 +1,155 @@
-  
-@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@100;200;300;400;500;600;700;800&display=swap');
+/* html {
+  font-size: 62.5%;
+}
 
-/* base styles */
 body {
   font-family: Raleway, sans-serif;
   margin: 0;
+  padding: 0 1rem;
   font-size: 1.5em;
   text-align: center;
   background: #1b1523;
   color: #fff;
+  height: 100vh;
+} */
+
+/* button {
+  background: none;
+  border: 2px solid #ffffff;
+  padding: 0.375rem 0.75rem;
+  border-radius: 4px;
+  color: #ffffff;
+  font-weight: bold;
+  cursor: pointer;
+  font-size: 1.8rem;
+
+  &:hover {
+    background: #c23866;
+    color: #ffffff;
+  }
 }
+
+h1 {
+  margin: 0;
+} */
+
+/* header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 2rem auto 0;
+  width: 100%;
+  max-width: 1200px;
+} */
+
+/* .reset-game {
+  fill: white;
+  width: 5rem;
+  border: 0;
+} */
+
+/* .difficulty-list {
+  list-style-type: none;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  margin: 2rem 0 0;
+}
+
+.difficulty-item {
+  margin: 0 1rem;
+} */
+
+/* .board {
+  margin: 2rem auto 0;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  max-width: 80rem;
+  container: board / inline-size;
+
+  @container board (inline-size > 450px) {
+    .card {
+      width: 10rem;
+      height: 10rem;
+      margin: 1rem;
+    }
+  }
+
+  @container board (inline-size > 650px) {
+    .card {
+      width: 12rem;
+      height: 12rem;
+      margin: 1rem;
+    }
+  }
+} */
+
+/* .card {
+  position: relative;
+  margin: 0.6rem;
+  cursor: pointer;
+  width: 7rem;
+  height: 7rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  &.flipped {
+    .front {
+      transform: rotateY(0deg);
+      transition-delay: 0.2s;
+    }
+
+    .back {
+      transform: rotateY(90deg);
+      transition-delay: 0s;
+    }
+  }
+
+  span {
+    font-size: 4rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 2px solid transparent;
+    border-radius: 6px;
+  }
+
+  .front {
+    transform: rotateY(90deg);
+    transition: all ease-in 0.2s;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    background: #ffffff;
+  }
+
+  .back {
+    transition: all ease-in 0.2s;
+    transition-delay: 0.2s;
+    width: 100%;
+    height: 100%;
+    background-color: #e5e5f7;
+    opacity: 0.8;
+    background-image: repeating-radial-gradient(
+        circle at 0 0,
+        transparent 0,
+        #e5e5f7 9px
+      ),
+      repeating-linear-gradient(#eb89f155, #eb89f1);
+  }
+
+  &.border {
+    span {
+      border-color: #ff69b4;
+    }
+  }
+} */
+
+/* .move-counter {
+  margin: 2rem 0;
+} */

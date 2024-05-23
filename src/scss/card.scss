@@ -1,0 +1,79 @@
+.card-component {
+  position: relative;
+  margin: 0.6rem;
+  cursor: pointer;
+  width: 7rem;
+  height: 7rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  &.flipped {
+    .front {
+      transform: rotateY(0deg);
+      transition-delay: 0.2s;
+    }
+
+    .back {
+      transform: rotateY(90deg);
+      transition-delay: 0s;
+    }
+  }
+
+  span {
+    font-size: 4rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 2px solid transparent;
+    border-radius: 6px;
+  }
+
+  .front {
+    transform: rotateY(90deg);
+    transition: all ease-in 0.2s;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    background: #ffffff;
+  }
+
+  .back {
+    transition: all ease-in 0.2s;
+    transition-delay: 0.2s;
+    width: 100%;
+    height: 100%;
+    background-color: #e5e5f7;
+    opacity: 0.8;
+    background-image: repeating-radial-gradient(
+        circle at 0 0,
+        transparent 0,
+        #e5e5f7 9px
+      ),
+      repeating-linear-gradient(#eb89f155, #eb89f1);
+  }
+
+  &.border {
+    span {
+      border-color: #ff69b4;
+    }
+  }
+}
+
+@container board (inline-size > 450px) {
+  .card-component {
+    width: 10rem;
+    height: 10rem;
+    margin: 1rem;
+  }
+}
+
+@container board (inline-size > 650px) {
+  .card-component {
+    width: 12rem;
+    height: 12rem;
+    margin: 1rem;
+  }
+}

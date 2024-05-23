@@ -1,73 +1,32 @@
 html {
   font-size: 62.5%;
+  font-family: $roboto;
 }
 
-.card-grid {
-  padding: 1.25rem;
-  max-width: 140rem;
-  margin: 0 auto;
+body {
+  margin: 0;
+  padding: 0 1rem;
+  font-size: 1.5em;
+  text-align: center;
+  background: $background;
+  color: $white;
+  height: 100vh;
+}
+
+h1 {
+  margin: 0;
+}
+
+header {
   display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
+  margin: 2rem auto 0;
+  width: 100%;
+  max-width: 1200px;
+}
 
-  &.easy {
-    max-width: 100rem;
 
-    @media screen and (max-width: $lg) {
-      max-width: 100%;
-    }
-
-    @media screen and (max-width: $md) {
-      .card {
-        max-width: 14rem;
-      }
-    }
-
-    @media screen and (max-width: $sm) {
-      .card {
-        max-width: 10rem;
-      }
-    }
-  }
-  
-  &.medium {
-    max-width: 100rem;
-
-    @media screen and (max-width: $lg) {
-      max-width: 100%;
-    }
-
-    @media screen and (max-width: $md) {
-      .card {
-        max-width: 12rem;
-      }
-    }
-
-    @media screen and (max-width: $sm) {
-      .card {
-        max-width: 10rem;
-      }
-    }
-  }
-  
-  &.hard {
-    max-width: 140rem;
-
-    @media screen and (max-width: $lg) {
-      max-width: 100%;
-    }
-
-    @media screen and (max-width: $md) {
-      .card {
-        max-width: 12rem;
-      }
-    }
-
-    @media screen and (max-width: $sm) {
-      .card {
-        max-width: 8rem;
-      }
-    }
-  }
+.move-counter {
+  margin: 2rem 0;
 }
