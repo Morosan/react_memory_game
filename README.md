@@ -1,4 +1,4 @@
-## Demo: https://react-memory-game-frozen.netlify.app/
+## Demo: https://keep-it-sharp.netlify.app/
 
 # Getting Started with Create React App
 
